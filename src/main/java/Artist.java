@@ -9,6 +9,7 @@ public class Artist {
 
     //Methods&Behaviours
 
+
     //Getters and Setters
     public String getName() {
         return this.name;

@@ -14,6 +14,21 @@ public class Gallery {
     }
 
     //Methods&Behaviours
+    public void sellArtwork(Customer customer, Artwork artwork){
+        if(customer.canBuy(artwork) == true){
+            customer.buyArtwork(artwork);
+            this.stock.remove(artwork);
+            setTill(this.till + artwork.getPrice());
+        }
+    }
+
+    public double calculateArtworkValue(){
+        double total = 0;
+        for(Artwork artwork : this.stock){
+            total += artwork.getPrice();
+        }
+        return total;
+    }
 
     //Getters and Setters
     //Name
@@ -21,7 +36,7 @@ public class Gallery {
         return this.name;
     }
 
-    public void setName (String name){
+    public void setName(String name){
         this.name = name;
     }
 
@@ -30,7 +45,7 @@ public class Gallery {
         return this.till;
     }
 
-    public void setTill(){
+    public void setTill(double till){
         this.till = till;
     }
 
